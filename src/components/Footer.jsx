@@ -1,6 +1,14 @@
 import React from 'react';
+import logo from '../assets/logo-text.png';
 
 export default function Footer() {
+  const handleLinkClick = (name, targetId) => {
+    const element = document.querySelector(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-white border-t border-slate-100 pt-16 pb-12 mt-20 text-slate-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,13 +17,15 @@ export default function Footer() {
           
           {/* ================= BRAND BLOCK ================= */}
           <div className="lg:col-span-2 space-y-3">
-            <div className="flex items-center space-x-2.5">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#9c27b0] via-[#e91e63] to-[#ff5722] flex items-center justify-center shadow-xs">
-                <span className="text-white font-extrabold text-[10px] tracking-wider">DS</span>
-              </div>
-              <span className="text-lg font-bold tracking-tight text-slate-900">
-                Dev<span className="text-brand-gradient">Stack</span>
-              </span>
+            <div 
+              className="flex items-center space-x-2.5 cursor-pointer group" 
+              onClick={() => handleLinkClick('Home', '#hero')}
+            >
+              <img 
+                src={logo} 
+                alt="DevStack Logo" 
+                className="h-9 w-auto object-contain" 
+              />
             </div>
             
             <p className="text-xs text-slate-500 max-w-xs leading-relaxed font-normal">
